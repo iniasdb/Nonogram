@@ -1,5 +1,5 @@
 import sys
-from Monogram import Monogram
+from Nonogram import Monogram
 
 verbose = False
 easteregg = False
@@ -66,6 +66,6 @@ if easteregg:
     input("Press enter to generate a monogram")
 
 m = Monogram(verbose)
-m.generate(30, 30, "in.jpg")
+m.generate(30, 30, "in.png")
 m.print_image()
 m.print_puzzle()
