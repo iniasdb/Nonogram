@@ -106,9 +106,12 @@ class Monogram:
         for i in range(maxCols):
             # ofset because of rows
             print("   "*maxRows, end="")
-
+            firstNum = True
             for col in cols:
                 if len(col) == maxCols-i:
+                    if firstNum and len(col) > 1:
+                        print("|", end="")
+                        firstNum = False
                     if len(str(col[0])) == 2:
                         print(f"{col[0]}|", end="")
                     else:
@@ -122,7 +125,6 @@ class Monogram:
                         print(" ~|", end="")
                     else:
                         print("   ", end="")
-            # print(" ", end="")   # TODO: backup
             print()
         
         print("---"*(len(cols)+maxRows))
