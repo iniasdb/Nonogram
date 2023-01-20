@@ -44,16 +44,23 @@ Het project bestaat volledig uit deze technologieën en gebruikt volgende python
 
 ### Prerequisites
 
+Install pip, if not installed yet.
+
 * pip
   1. Change directory to Downloads
   ```sh
   cd Downloads
   ```
-  2. Download <a href="https://bootstrap.pypa.io/get-pip.py">pip.py</a> or use wget
-  ```sh
-  wget http://www.domain.com/filename.zip
-  ```
-  3. Run install script
+  2. Download <a href="https://bootstrap.pypa.io/get-pip.py">pip.py</a> 
+     1. Or use wget:
+     ```sh
+      wget https://bootstrap.pypa.io/get-pip.py      
+      ```
+      2. Or use Curl:
+      ```sh
+      curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+      ```
+  1. Run install script
   ```sh
   python get-pip.py
   ```
