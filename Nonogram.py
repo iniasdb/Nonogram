@@ -102,21 +102,30 @@ class Monogram:
         ###
         cols = self._cols
         cols.reverse()
+        first = True
         for i in range(maxCols):
             # ofset because of rows
             print("   "*maxRows, end="")
 
             for col in cols:
                 if len(col) == maxCols-i:
-                    print(f" {col[0]} ", end="")
+                    if len(str(col[0])) == 2:
+                        print(f"{col[0]}|", end="")
+                    else:
+                        print(f" {col[0]}|", end="")
                     col.pop(0)
                 else:
                     if i == maxCols-1:
-                        print(" ~ ", end="")
+                        if first:
+                            print("|", end="")
+                            first = False
+                        print(" ~|", end="")
                     else:
                         print("   ", end="")
+            # print(" ", end="")   # TODO: backup
             print()
-
+        
+        print("---"*(len(cols)+maxRows))
         ###
         # Loop rows
         # If len() = 0 (no black squares), print " " ofset and ~
@@ -126,12 +135,17 @@ class Monogram:
         for row in rows:
             if len(row) == 0:
                 print("   "*(maxRows-1), end="")
-                print(" ~ ", end="")
+                print(" ~", end="")
+                print(" | "*(len(cols)+1), end="")
             else:
                 print("   "*(maxRows-len(row)), end="")
+                if len(row) > 1:
+                    print(" "*(len(row)-1), end="")
                 for n in row:
-                    print(f" {n} ", end="")
+                    print(f" {n}", end="")
+                print(" | "*(len(cols)+1), end="")
             print()
+            print("---"*(len(cols)+maxRows))
 
     def print_image(self):
         # Create pixel map
